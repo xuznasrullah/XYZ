@@ -5,31 +5,69 @@ body {
     color: white;
     font-family: 'Poppins', sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     min-height: 100vh;
 }
 
+/* উপরের নেভিগেশন বার */
+.top-nav {
+    width: 100%;
+    padding: 15px 25px;
+    background: rgba(26, 26, 30, 0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #00f2ff;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    color: #00f2ff;
+    font-weight: bold;
+}
+
+.login-btn {
+    text-decoration: none;
+    color: white;
+    border: 1px solid #ff0055;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #ff0055;
+    box-shadow: 0 0 10px #ff0055;
+}
+
+/* কন্টেইনার এবং নাম নিচে নামানোর জন্য */
 .container {
     text-align: center;
     width: 90%;
     max-width: 600px;
+    margin-top: 100px; /* নাম নিচে নামানোর জন্য গ্যাপ */
     padding: 20px;
 }
 
 h1.glitch {
     font-family: 'Orbitron', sans-serif;
-    font-size: 2.5rem; /* নাম বড় না হওয়ার জন্য সাইজ কমানো হয়েছে */
+    font-size: 2.2rem;
     color: #00f2ff;
     text-shadow: 2px 2px #ff0055;
     text-transform: uppercase;
+    margin-bottom: 10px;
 }
 
-/* মোবাইলের জন্য স্পেশাল সাইজ */
 @media (max-width: 480px) {
-    h1.glitch {
-        font-size: 1.8rem; /* ছোট ফোনে নাম একদম পারফেক্ট দেখাবে */
-    }
+    h1.glitch { font-size: 1.8rem; }
+    .container { margin-top: 80px; }
 }
 
 .profile-card {
@@ -63,12 +101,9 @@ h1.glitch {
     text-decoration: none;
     border: 1px solid #00f2ff;
     transition: 0.3s;
-    font-size: 0.9rem;
 }
 
 .btn:hover {
     background: #00f2ff;
     color: #000;
-    box-shadow: 0 0 15px #00f2ff;
-}
 }
