@@ -3,101 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nasrullah | Profile</title>
+    <title>Nasrullah | Gamer Profile</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 </head>
-<body class="dark-theme">
-
-    <div class="cursor-trail"></div>
+<body>
 
     <nav class="top-nav">
         <div class="logo">XYZ</div>
         <div class="nav-right">
-            <button id="themeToggle" class="login-btn">🌓 Mode</button>
-            <button id="loginBtn" class="login-btn">Login</button>
+            <a href="#" class="login-btn">Login</a>
         </div>
     </nav>
 
     <div class="container">
-    <section class="profile-card">
-        <div class="bio">
-            <h2>About Me</h2>
-            <div id="details-animation" style="min-height: 120px;"></div>
-        </div>
+        <header>
+            <h1 class="glitch" data-text="NASRULLAH">NASRULLAH</h1>
+            <p class="tagline">Pro Player | Streamer | Content Creator</p>
+        </header>
 
-        <div class="skills-section">
-            <h3>My Mus-Skills</h3>
-            <div class="skill-item">
-                <span>Gaming</span>
-                <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
-            </div>
+        <section class="profile-card">
+            <div class="bio">
+                <h2>Welcome to My Realm</h2>
+                <p>Hello! I'm Nasrullah, a passionate gamer and tech enthusiast. This is my personal space where I showcase my gaming journey, stats, and achievements. I love exploring immersive worlds and mastering competitive gameplay. Let's connect and level up together!</p>
             </div>
 
-        <div class="social-links">
-            <a href="https://www.facebook.com/yournasrullah" class="btn">Facebook</a>
-            <a href="https://instagram.com/_xuznasrullah" class="btn">Instagram</a>
-        </div>
-    </section>
-</div>
+            <div class="stats">
+                <div class="stat-box"><h3>Rank</h3><p>Elite</p></div>
+                <div class="stat-box"><h3>K/D</h3><p>4.5</p></div>
+                <div class="stat-box"><h3>Level</h3><p>75</p></div>
+            </div>
 
-    <audio id="bgMusic" loop>
-        <source src="music.mp3" type="audio/mpeg">
-    </audio>
-<div id="loginModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn">&times;</span>
-        <h2>Security Login</h2>
-        <p id="errorMsg" class="error-text">Invalid Credentials!</p>
-        <input type="text" id="username" placeholder="Username" class="login-input">
-        <input type="password" id="password" placeholder="Password" class="login-input">
-        <button id="submitLogin" class="modal-login-btn">Authorize</button>
+            <div class="social-links">
+                <a href="#" class="btn">Discord</a>
+                <a href="#" class="btn">YouTube</a>
+                <a href="#" class="btn">Twitch</a>
+            </div>
+        </section>
     </div>
-</div>
 
-    <script>
-        // ১. টাইপিং অ্যানিমেশন
-       // ৩. নতুন জাভাস্ক্রিপ্ট অ্যানিমেশন (About Me বক্সের জন্য)
-var typed = new Typed('#details-animation', {
-    strings: [
-        '<span class="info-label">Name:</span> Nasrullah<br>' +
-        '<span class="info-label">Academic Status:</span> Student<br>' +
-        '<span class="info-label">Age:</span> 20<br>' +
-        '<span class="info-label">Vibe:</span> Creative mind, low battery brain 😴'
-    ],
-    typeSpeed: 40,
-    showCursor: true,
-    cursorChar: '_',
-    loop: false
-});
-
-        // ২. লগইন ও মিউজিক চালু (ব্রাউজার পলিসির কারণে ক্লিক করলে মিউজিক বাজবে)
-        const music = document.getElementById('bgMusic');
-        const loginBtn = document.getElementById('loginBtn');
-        const loginModal = document.getElementById('loginModal');
-
-        loginBtn.onclick = () => { 
-            loginModal.style.display = 'flex'; 
-            music.play(); // লগইন বাটনে ক্লিক করলে গান শুরু হবে
-        }
-
-        // ৩. ডার্ক/লাইট মোড টগল
-        const themeBtn = document.getElementById('themeToggle');
-        themeBtn.onclick = () => {
-            document.body.classList.toggle('light-theme');
-        }
-
-        // ৪. কাস্টম কার্সর ট্রেইল
-        document.addEventListener('mousemove', (e) => {
-            const trail = document.querySelector('.cursor-trail');
-            trail.style.left = e.pageX + 'px';
-            trail.style.top = e.pageY + 'px';
-        });
-
-        // ক্লোজ বাটন ফাংশন
-        document.querySelector('.close-btn').onclick = () => loginModal.style.display = 'none';
-        document.getElementById('submitLogin').onclick = () => document.getElementById('errorMsg').style.visibility = 'visible';
-    </script>
 </body>
 </html>
