@@ -5,61 +5,65 @@
     --accent: #00f2ff;
 }
 
-body {
+* {
+    box-sizing: border-box; /* এটি সব এলিমেন্টকে স্ক্রিনের ভেতরে রাখবে */
     margin: 0;
     padding: 0;
+}
+
+body {
     background-color: var(--bg);
     color: var(--text);
     font-family: 'Poppins', sans-serif;
-    /* ডেক্সটপে সবকিছু মাঝখানে রাখার জন্য নিচের ৩টি লাইন জরুরি */
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
-    overflow-x: hidden;
+    width: 100%;
+    overflow-x: hidden; /* ডানে-বামে যেন স্ক্রল না হয় */
 }
 
-/* ওপরে স্থির বার (স্ক্রল করলে ওপরেই থাকবে) */
+/* নেভিগেশন বার ফিক্স */
 .top-nav {
     width: 100%;
-    padding: 12px 20px;
+    padding: 10px 15px;
     background: var(--card);
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid var(--accent);
-    position: absolute; 
+    position: absolute;
     top: 0;
     left: 0;
-    box-sizing: border-box;
+    right: 0;
     z-index: 1000;
 }
 
 .logo {
     font-family: 'Orbitron', sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: var(--accent);
     text-shadow: 0 0 10px var(--accent);
-    margin: 0;
 }
 
-/* কন্টেইনার - এটিই কম্পিউটার ও মোবাইলে সেন্টারিং ঠিক রাখে */
+.nav-right {
+    display: flex;
+    gap: 8px;
+}
+
+/* কন্টেইনার - যা সবকিছু সেন্টারে রাখবে */
 .container {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 70px; /* লোগো বারের ঠিক নিচ থেকে শুরু হবে */
+    padding: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    width: 90%;
-    max-width: 650px; /* ডেস্কটপে খুব বেশি ছড়াবে না */
-    margin-top: 80px; /* লোগো বারের নিচে সামান্য গ্যাপ */
-    margin-bottom: 50px;
-    padding: 20px;
-    box-sizing: border-box;
 }
 
 .profile-pic {
-    width: 140px;
-    height: 140px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     border: 3px solid var(--accent);
     overflow: hidden;
@@ -73,26 +77,19 @@ body {
     object-fit: cover;
 }
 
-h1.glitch {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.2rem;
-    margin: 10px 0;
-}
-
-/* প্রোফাইল কার্ড ডিজাইন */
+/* প্রোফাইল কার্ড */
 .profile-card {
     background: var(--card);
-    padding: 30px;
+    padding: 25px;
     border-radius: 20px;
-    width: 100%; /* কন্টেইনারের পুরোটা নিবে */
-    box-sizing: border-box;
+    width: 100%; /* ফোনের স্ক্রিন অনুযায়ী পুরোটা নিবে */
     border: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .skills-section {
-    text-align: left;
     width: 100%;
+    text-align: left;
 }
 
 .progress-bar {
@@ -107,31 +104,38 @@ h1.glitch {
     height: 100%;
     background: var(--accent);
     border-radius: 10px;
-    box-shadow: 0 0 10px var(--accent);
 }
 
-/* ডেস্কটপ ও বড় স্ক্রিনের জন্য ফন্ট সাইজ একটু বাড়ানো */
-@media (min-width: 1024px) {
-    h1.glitch { font-size: 3rem; }
+/* বাটন স্টাইল */
+.login-btn {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+/* মাউস ইফেক্ট মোবাইল থেকে বন্ধ রাখতে পারো চাইলে */
+.cursor-trail {
+    display: none; /* মোবাইলে ডটটা অনেক সময় ডিস্টার্ব করে */
+}
+
+@media (min-width: 768px) {
+    .cursor-trail { display: block; } /* শুধু কম্পিউটারেই ডটটা দেখাবে */
     .container { margin-top: 100px; }
-}
-
-/* পপআপ (Login Modal) */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.9);
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-}
-
-.modal-content {
-    background: var(--card);
-    padding: 40px;
-    border-radius: 20px;
-    border: 2px solid var(--accent);
-    width: 320px;
-    text-align: center;
+    .logo { font-size: 1.5rem; }
 }
