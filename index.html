@@ -59,12 +59,19 @@
 
     <script>
         // ১. টাইপিং অ্যানিমেশন
-        var typed = new Typed('#typed', {
-            strings: ['Prank planner', 'Night thinker','Reel spammer', 'Dreamer', 'Problem creator'],
-            typeSpeed: 50,
-            backSpeed: 30,
-            loop: true
-        });
+       // ৩. নতুন জাভাস্ক্রিপ্ট অ্যানিমেশন (About Me বক্সের জন্য)
+var typed = new Typed('#details-animation', {
+    strings: [
+        '<span class="info-label">Name:</span> Nasrullah<br>' +
+        '<span class="info-label">Academic Status:</span> Student<br>' +
+        '<span class="info-label">Age:</span> 20<br>' +
+        '<span class="info-label">Vibe:</span> Creative mind, low battery brain 😴'
+    ],
+    typeSpeed: 40,
+    showCursor: true,
+    cursorChar: '_',
+    loop: false
+});
 
         // ২. লগইন ও মিউজিক চালু (ব্রাউজার পলিসির কারণে ক্লিক করলে মিউজিক বাজবে)
         const music = document.getElementById('bgMusic');
