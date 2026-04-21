@@ -169,53 +169,67 @@ body {
 }
 
 /* ৪. লগইন বক্স - প্রিমিয়াম ভাইব */
+/* ৪. লগইন বক্স - প্রফেশনাল ও ফিক্সড করা হলো */
 .modal {
-    display: none;
+    display: none; /* ডিফল্টভাবে লুকানো থাকবে */
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(5px); /* ব্যাকগ্রাউন্ড ব্লার ইফেক্ট */
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px); /* ব্যাকগ্রাউন্ড ব্লার আরও বাড়ানো হলো */
     justify-content: center;
     align-items: center;
-    z-index: 2000;
+    z-index: 9999; /* যেন সবকিছুর উপরে থাকে */
 }
 
 .modal-content {
     background: var(--card);
     padding: 40px 30px;
-    border-radius: 25px;
+    border-radius: 20px;
     border: 1px solid var(--accent);
-    width: 90%;
-    max-width: 350px;
+    width: 85%;
+    max-width: 380px;
     text-align: center;
     position: relative;
-    box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
+    box-shadow: 0 0 40px rgba(0, 242, 255, 0.25);
+    animation: fadeIn 0.4s ease-out; /* হালকা অ্যানিমেশন */
+}
+
+@keyframes fadeIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
 .close-btn {
     position: absolute;
-    top: 10px;
+    top: 15px;
     right: 20px;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     cursor: pointer;
     color: var(--accent);
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg);
 }
 
 .login-input {
     width: 100%;
     padding: 12px 15px;
     margin: 10px 0;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.1);
-    background: rgba(0,0,0,0.2);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    background: rgba(0, 0, 0, 0.4);
     color: #fff;
+    font-size: 1rem;
     outline: none;
-    transition: 0.3s;
 }
 
 .login-input:focus {
     border-color: var(--accent);
-    box-shadow: 0 0 10px var(--accent);
 }
 
 .modal-login-btn {
@@ -224,19 +238,24 @@ body {
     background: var(--accent);
     border: none;
     font-weight: bold;
-    border-radius: 10px;
+    border-radius: 8px;
     color: #000;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 15px;
+    font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.modal-login-btn:hover {
+    box-shadow: 0 0 15px var(--accent);
 }
 
 .error-text {
-    visibility: hidden;
+    display: none; /* visibility-র বদলে display ইউজ করা ভালো */
     color: #ff4d4d;
-    font-size: 0.8rem;
-    margin-top: 5px;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
 }
 
 /* বাটন সোশ্যাল */
