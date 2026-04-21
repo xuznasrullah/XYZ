@@ -3,47 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nasrullah | Personal Space</title>
+    <title>Nasrullah | Pro Profile</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 </head>
-<body>
+<body class="dark-theme">
+
+    <div class="cursor-trail"></div>
 
     <nav class="top-nav">
         <div class="logo">XYZ</div>
         <div class="nav-right">
-            <button id="loginBtn" class="login-btn">Member Login</button>
+            <button id="themeToggle" class="login-btn">🌓 Mode</button>
+            <button id="loginBtn" class="login-btn">Login</button>
         </div>
     </nav>
 
     <div class="container">
         <header>
             <div class="profile-pic">
-                <img src="1000087746.jpg" alt="Profile" onerror="this.src='https://via.placeholder.com/150/000814/00f2ff?text=Nasrullah'">
+                <img src="1000087746.jpg" alt="Profile" onerror="this.src='https://via.placeholder.com/150'">
             </div>
             <h1 class="glitch" data-text="NASRULLAH">NASRULLAH</h1>
-            <p class="tagline">Tech Enthusiast | Visionary | Problem Solver</p>
+            <p class="tagline"><span id="typed"></span></p>
         </header>
 
         <section class="profile-card">
             <div class="bio">
                 <h2>About Me</h2>
-                <p>Hello! I'm Nasrullah. Welcome to my private corner of the internet. I'm a creative mind fueled by technology and innovation. This website is a glimpse into my world, where I share my journey and thoughts.</p>
+                <p>Creative mind fueled by technology. Turning ideas into digital reality.</p>
+            </div>
+
+            <div class="skills-section">
+                <h3>My Skills</h3>
+                <div class="skill-item">
+                    <span>Gaming</span>
+                    <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <span>Coding</span>
+                    <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <span>Video Editing</span>
+                    <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+                </div>
             </div>
 
             <div class="social-links">
-                <a href="#" class="btn">Connect on Facebook</a>
-                <a href="#" class="btn">View My GitHub</a>
-                <a href="mailto:nasrullah@email.com" class="btn">Send an Email</a>
+                <a href="#" class="btn">Facebook</a>
+                <a href="#" class="btn">GitHub</a>
             </div>
         </section>
     </div>
 
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
-            <h2 class="modal-title">Security Login</h2>
-            <p id="errorMsg" class="error-text">Access Denied: Invalid Credentials!</p>
+            <h2>Security Login</h2>
+            <p id="errorMsg" class="error-text">Invalid Credentials!</p>
             <input type="text" id="username" placeholder="Username" class="login-input">
             <input type="password" id="password" placeholder="Password" class="login-input">
             <button id="submitLogin" class="modal-login-btn">Authorize</button>
@@ -51,22 +74,40 @@
     </div>
 
     <script>
+        // ১. টাইপিং অ্যানিমেশন
+        var typed = new Typed('#typed', {
+            strings: ['Tech Enthusiast', 'Visionary', 'Content Creator', 'Problem Solver'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true
+        });
+
+        // ২. লগইন ও মিউজিক চালু (ব্রাউজার পলিসির কারণে ক্লিক করলে মিউজিক বাজবে)
+        const music = document.getElementById('bgMusic');
         const loginBtn = document.getElementById('loginBtn');
         const loginModal = document.getElementById('loginModal');
-        const closeBtn = document.querySelector('.close-btn');
-        const submitLogin = document.getElementById('submitLogin');
-        const errorMsg = document.getElementById('errorMsg');
 
-        loginBtn.onclick = () => { loginModal.style.display = 'flex'; }
-        closeBtn.onclick = () => { loginModal.style.display = 'none'; errorMsg.style.visibility = 'hidden'; }
-        window.onclick = (e) => { if(e.target == loginModal) loginModal.style.display = 'none'; }
-
-        submitLogin.onclick = () => {
-            errorMsg.style.visibility = 'visible';
-            document.getElementById('username').value = '';
-            document.getElementById('password').value = '';
+        loginBtn.onclick = () => { 
+            loginModal.style.display = 'flex'; 
+            music.play(); // লগইন বাটনে ক্লিক করলে গান শুরু হবে
         }
-    </script>
 
+        // ৩. ডার্ক/লাইট মোড টগল
+        const themeBtn = document.getElementById('themeToggle');
+        themeBtn.onclick = () => {
+            document.body.classList.toggle('light-theme');
+        }
+
+        // ৪. কাস্টম কার্সর ট্রেইল
+        document.addEventListener('mousemove', (e) => {
+            const trail = document.querySelector('.cursor-trail');
+            trail.style.left = e.pageX + 'px';
+            trail.style.top = e.pageY + 'px';
+        });
+
+        // ক্লোজ বাটন ফাংশন
+        document.querySelector('.close-btn').onclick = () => loginModal.style.display = 'none';
+        document.getElementById('submitLogin').onclick = () => document.getElementById('errorMsg').style.visibility = 'visible';
+    </script>
 </body>
 </html>
