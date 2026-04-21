@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0b0b0d;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    max-width: 600px;
+    padding: 20px;
+}
+
+h1.glitch {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    color: #00f2ff;
+    text-shadow: 2px 2px #ff0055;
+    text-transform: uppercase;
+}
+
+.profile-card {
+    background: #1a1a1e;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+    border: 1px solid #333;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 25px 0;
+}
+
+.stat-box {
+    background: #25252b;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border-bottom: 3px solid #00f2ff;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    color: #00f2ff;
+    text-decoration: none;
+    border: 1px solid #00f2ff;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #00f2ff;
+    color: #000;
+    box-shadow: 0 0 15px #00f2ff;
+}
